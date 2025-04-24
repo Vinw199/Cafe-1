@@ -92,7 +92,7 @@ export default function DineInPolicyPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
       <div className="md:grid md:grid-cols-3 md:gap-8 lg:gap-12">
         {/* Sticky Title Column (Left) */}
-        <div className="md:col-span-1 md:sticky md:top-24 h-fit mb-12 md:mb-0">
+        <div className="md:col-span-1 md:sticky md:top-24 h-fit mb-12 md:mb-0 text-center md:text-left">
           <motion.h1 
             className="text-3xl md:text-4xl font-bold text-[#3A3A3A] mb-4"
             initial={{ opacity: 0, x: -20 }}
@@ -115,7 +115,7 @@ export default function DineInPolicyPage() {
         {/* Policy Content Column (Right) */}
         <div className="md:col-span-2 space-y-8">
           <motion.p
-            className="mb-8 text-gray-600"
+            className="mb-8 px-6 text-gray-600"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
