@@ -119,7 +119,7 @@ export default function DineInPolicyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Welcome to Guglu's Cafe! To help ensure a comfortable and enjoyable experience for all our guests and staff, we kindly ask you to observe the following guidelines during your visit.
+            Welcome to Guglu&apos;s Cafe! To help ensure a comfortable and enjoyable experience for all our guests and staff, we kindly ask you to observe the following guidelines during your visit.
           </motion.p>
 
           {policies.map((policy, index) => (
