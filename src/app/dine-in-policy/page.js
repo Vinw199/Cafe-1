@@ -29,7 +29,7 @@ const policies = [
     title: 'Seating & Groups',
     icon: UsersIcon, // Added icon
     points: [
-      { subHeading: "Group Size:", description: "To ensure a comfortable experience in our space, we can accommodate dine-in groups of up to [e.g., 6] people. For larger groups, please consider placing a takeaway order." }, // Placeholder
+      { subHeading: "Group Size:", description: "To ensure a comfortable experience in our space, we can accommodate dine-in groups of up to 6 people. For larger groups, please consider placing a takeaway order." },
       { subHeading: "Busy Hours:", description: "Our cafe has limited seating. During peak times, seating may be limited, and accommodating larger groups might be challenging. We appreciate your patience and understanding. Takeaway orders are always welcome." },
       { subHeading: "Wait Times:", description: "During busy periods, food and drink orders may take a little longer to prepare. We appreciate your patience as we craft everything with care." }
     ]
@@ -39,7 +39,7 @@ const policies = [
     icon: ShoppingCartIcon, // Added icon
     points: [
       { subHeading: "Our Menu Only:", description: "We pour a lot of love into our menu! Please enjoy our food and beverages exclusively during your visit; outside food or drinks are not permitted." },
-      { subHeading: "Closing Time:", description: "Our last order is typically taken around [e.g., 6:15 PM]. Orders placed near closing may be served as takeaway depending on kitchen status. We close promptly at [e.g., 6:45 PM]." }, // Placeholders
+      { subHeading: "Closing Time:", description: "Our last order is typically taken around 6:15 PM. Orders placed near closing may be served as takeaway depending on kitchen status. We close promptly at 7:00 PM." },
       { subHeading: "Payments:", description: "We prefer cashless payments for convenience and safety." }
     ]
   },
@@ -93,17 +93,16 @@ export default function DineInPolicyPage() {
       <div className="md:grid md:grid-cols-3 md:gap-8 lg:gap-12">
         {/* Sticky Title Column (Left) */}
         <div className="md:col-span-1 md:sticky md:top-24 h-fit mb-12 md:mb-0 text-center md:text-left">
-          <motion.h1 
-            className="text-3xl md:text-4xl font-bold text-[#3A3A3A] mb-4"
+          <motion.h1
+            className="text-3xl md:text-4xl font-bold text-stone-900 mb-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             Our Cafe Policies
           </motion.h1>
-          {/* Optional: Add a short description here */}
-          <motion.p 
-            className="text-gray-500"
+          <motion.p
+            className="text-gray-600"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -115,12 +114,12 @@ export default function DineInPolicyPage() {
         {/* Policy Content Column (Right) */}
         <div className="md:col-span-2 space-y-8">
           <motion.p
-            className="mb-8 px-6 text-gray-600"
+            className="mb-8 px-6 text-gray-700"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Welcome to [Your Cafe Name]! To help ensure a comfortable and enjoyable experience for all our guests and staff, we kindly ask you to observe the following guidelines during your visit.
+            Welcome to Guglu's Cafe! To help ensure a comfortable and enjoyable experience for all our guests and staff, we kindly ask you to observe the following guidelines during your visit.
           </motion.p>
 
           {policies.map((policy, index) => (
@@ -133,13 +132,13 @@ export default function DineInPolicyPage() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <div className="flex items-center gap-3 mb-4">
-                {policy.icon && <policy.icon className="h-6 w-6 text-amber-700 flex-shrink-0" aria-hidden="true" />}
-                <h2 className="text-2xl font-semibold text-[#3A3A3A]">{policy.title}</h2>
+                {policy.icon && <policy.icon className="h-6 w-6 text-stone-900 flex-shrink-0" aria-hidden="true" />}
+                <h2 className="text-2xl font-semibold text-stone-900">{policy.title}</h2>
               </div>
-              <div className="space-y-2 text-gray-600 leading-relaxed mt-2 pl-[calc(1.5rem+0.75rem)]">
+              <div className="space-y-2 text-gray-700 leading-relaxed mt-2 pl-[calc(1.5rem+0.75rem)]">
                  {policy.points.map((point, pIndex) => (
                    <p key={pIndex}>
-                     {point.subHeading && <strong className="font-semibold text-[#3A3A3A]">{point.subHeading}</strong>}
+                     {point.subHeading && <strong className="font-semibold text-stone-900">{point.subHeading}</strong>}
                      {point.subHeading ? ' ' : ''}
                      {point.description}
                    </p>
