@@ -23,3 +23,25 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove NProgress custom styles */
+/* 
+#nprogress .bar {
+  background: #d97706 !important; 
+  height: 3px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #d97706, 0 0 5px #d97706 !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #d97706 !important;
+  border-left-color: #d97706 !important;
+}
+*/

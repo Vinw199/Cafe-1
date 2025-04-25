@@ -3,6 +3,7 @@ import { Poppins, Lora } from 'next/font/google';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NextNProgress from 'nextjs-toploader';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,17 +30,22 @@ const lora = Lora({
 
 export const metadata = {
   title: "GLENROAST - Jorhat",
-  description: "Specialty coffee shop in Jorhat, Assam.",
+  description: "Specialty coffee, community hub, and quality goods in Jorhat, Assam.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${lora.variable} font-sans antialiased flex flex-col min-h-screen bg-[#F8F5F2]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${lora.variable} font-sans antialiased flex flex-col min-h-screen`}
       >
+        <NextNProgress 
+          color="#d97706"
+          height={3} 
+          showSpinner={false}
+        />
         <Navbar />
-        <main className="flex-grow">
+        <main className="relative z-20 flex-grow">
           {children}
         </main>
         <Footer />

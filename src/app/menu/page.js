@@ -178,25 +178,26 @@ export default function MenuPage() {
   ];
 
   return (
-    <div className="bg-[#F8F5F2]">
+    // <div className="bg-[#F8F5F2]">
+    <div>
       <motion.div
         className="h-64 md:h-80 lg:h-96 w-full bg-stone-300 relative overflow-hidden"
         variants={fadeIn}
         initial="hidden"
         animate="visible"
       >
-         <Image
-           src="/images/menu-hero.jpg"
-           alt="Glenroast Cafe Ambiance or Signature Item"
-           layout="fill"
-           objectFit="cover"
-           priority
-           className="opacity-90"
-         />
+        <Image
+          src="/images/menu-hero.jpg"
+          alt="Glenroast Cafe Ambiance or Signature Item"
+          layout="fill"
+          objectFit="cover"
+          priority
+          className="opacity-90"
+        />
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-16 lg:pb-24">
-        <motion.h1 
+        <motion.h1
           className="text-4xl md:text-5xl font-bold font-serif text-stone-900 mb-12 md:mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -249,13 +250,10 @@ export default function MenuPage() {
                   </div>
                 </motion.div>
 
-                {index < arr.length - 1 && (
-                  <hr className="my-8 border-stone-300" />
-                )}
-
+                {/* Coffee Image - Resize */}
                 {category.categoryName === "Coffee" && (
                   <motion.div
-                    className="aspect-video rounded-lg shadow-md relative overflow-hidden my-8"
+                    className="aspect-video rounded-lg shadow-md relative overflow-hidden mt-6 mb-12 w-5/6"
                     variants={sectionVariant}
                     initial="hidden"
                     whileInView="visible"
@@ -271,9 +269,10 @@ export default function MenuPage() {
                   </motion.div>
                 )}
 
+                {/* Bakery Image - Resize */}
                 {category.categoryName === "From the bakery" && (
                   <motion.div
-                    className="aspect-video rounded-lg shadow-md relative overflow-hidden my-8"
+                    className="aspect-video rounded-lg shadow-md relative overflow-hidden my-6 w-5/6"
                     variants={sectionVariant}
                     initial="hidden"
                     whileInView="visible"
@@ -323,13 +322,10 @@ export default function MenuPage() {
                       </ul>
                     </motion.div>
 
-                    {subIndex < subArr.length - 1 && (
-                      <hr className="my-8 border-stone-300" />
-                    )}
-
+                    {/* Pizza Image - Resize */}
                     {subCategory.subCategoryName === "Wood Fired Pizza" && (
                       <motion.div
-                        className="aspect-video rounded-lg shadow-md relative overflow-hidden my-8"
+                        className="aspect-video rounded-lg shadow-md relative overflow-hidden mt-6 mb-12 w-5/6"
                         variants={sectionVariant}
                         initial="hidden"
                         whileInView="visible"
@@ -347,18 +343,18 @@ export default function MenuPage() {
                   </React.Fragment>
                 ))}
                 {!category.subCategories && category.items && (
-                    <ul className="space-y-3 ml-2">
-                      {category.items.map((item, itemIndex) => (
-                        <li key={`${item.name}-${itemIndex}-direct`}>
-                           <p className="text-stone-800 font-medium">{item.name}</p>
-                          {item.description && (
-                            <p className="text-sm text-stone-600 mt-1 ml-2">
-                              {item.description}
-                            </p>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
+                  <ul className="space-y-3 ml-2">
+                    {category.items.map((item, itemIndex) => (
+                      <li key={`${item.name}-${itemIndex}-direct`}>
+                        <p className="text-stone-800 font-medium">{item.name}</p>
+                        {item.description && (
+                          <p className="text-sm text-stone-600 mt-1 ml-2">
+                            {item.description}
+                          </p>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
             ))}
