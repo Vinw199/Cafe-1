@@ -195,7 +195,7 @@ export default function MenuPage() {
          />
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-16 lg:pb-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-16 lg:pb-24">
         <motion.h1 
           className="text-4xl md:text-5xl font-bold font-serif text-stone-900 mb-12 md:mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
