@@ -66,16 +66,16 @@ const AboutPage = () => {
               Our Vision
             </h2>
             <p className="text-stone-700 leading-relaxed">
-              Unlike tea, coffee hasn't had a smooth cultural journey in Assam—due to factors like limited exposure, lack of quality options, and a scarcity of community coffee spaces. Glenroast aims to change that by introducing specialty coffee to Jorhat. We envision a space where people from all walks of life can explore a variety of coffees tailored to different tastes.
+              Unlike tea, coffee hasn&apos;t had a smooth cultural journey in Assam—due to factors like limited exposure, lack of quality options, and a scarcity of community coffee spaces. Glenroast aims to change that by introducing specialty coffee to Jorhat. We envision a space where people from all walks of life can explore a variety of coffees tailored to different tastes.
             </p>
             <p className="text-stone-700 leading-relaxed">
               More than just a café, Glenroast strives to be a lively community hub—hosting engaging conversations, offering a co-working zone, and featuring events like book readings, open mics, live music, and match screenings. Our terrace extends the experience, offering open-air seating with scenic views.
             </p>
             <p className="text-stone-700 leading-relaxed">
-              The concept of the neighborhood coffee shop is fading. At Glenroast, our foremost goal is to rebuild that community spirit—creating a space where diverse backgrounds connect, converse, and contribute to a richer social fabric. We hope to revive the tradition of coffee shops as platforms for meaningful dialogue, fostering what sociologist Robert Putnam calls "bridging social capital."
+              The concept of the neighborhood coffee shop is fading. At Glenroast, our foremost goal is to rebuild that community spirit—creating a space where diverse backgrounds connect, converse, and contribute to a richer social fabric. We hope to revive the tradition of coffee shops as platforms for meaningful dialogue, fostering what sociologist Robert Putnam calls &quot;bridging social capital.&quot;
             </p>
             <p className="text-stone-700 leading-relaxed">
-              Let's nurture the spirit of community—one cup, one conversation at a time.
+              Let&apos;s nurture the spirit of community—one cup, one conversation at a time.
             </p>
           </div>
 
@@ -127,39 +127,38 @@ const AboutPage = () => {
           </div>
         </motion.section>
 
-        {/* Join Us - Call to Action Section - Enhanced Styling */}
+        {/* Join Us - Call to Action Section - Corrected Styling */}
         <motion.section
-          // Change background, adjust padding/margins slightly if needed
-          className="bg-stone-800 rounded-lg shadow-lg p-12 lg:p-16 my-16 lg:my-24 text-center"
+          // Correct background and ensure padding/margins are appropriate
+          className="bg-stone-200 rounded-lg shadow-lg p-12 lg:p-16 my-16 lg:my-24 text-center"
           variants={sectionVariant}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-500 mb-3"> {/* Adjusted color and margin */}
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-amber-600 mb-3"> {/* Corrected color */}
             Join Our Team
           </h3>
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-stone-100 mb-5"> {/* Increased size, changed color, adjusted margin*/}
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-stone-900 mb-5"> {/* Corrected color */}
             Be Part of the Glenroast Story
           </h2>
-          <p className="text-stone-300 max-w-2xl mx-auto mb-8 leading-relaxed"> {/* Changed color, adjusted margin */}
-            We're passionate about coffee, community, and creating memorable experiences. If you share our vision, we'd love to hear from you.
+          <p className="text-stone-700 max-w-2xl mx-auto mb-8 leading-relaxed"> {/* Corrected color */}
+            We&apos;re passionate about coffee, community, and creating memorable experiences. If you share our vision, we&apos;d love to hear from you.
           </p>
           <Link href="/contact">
              <motion.span
-              // Keep existing styles, potentially adjust hover state if needed for contrast
+              // Button styles remain the same
               className="inline-flex items-center bg-amber-600 text-white font-medium py-3 px-8 rounded-md shadow hover:bg-amber-700 transition-colors duration-200 ease-in-out cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
             >
               Reach Out
-              <span className="ml-2">→</span> {/* Add arrow icon */}
+              <span className="ml-2">→</span>
             </motion.span>
           </Link>
         </motion.section>
 
-        {/* Meet the Team Section - Now directly inside */}
-        {/* Restore original padding */}
+        {/* Meet the Team Section - Style should be correct */}
         <motion.section
           className="py-16 lg:py-24"
           variants={sectionVariant}
