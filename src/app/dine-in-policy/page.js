@@ -89,12 +89,12 @@ const sectionVariant = {
 
 export default function DineInPolicyPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-      <div className="md:grid md:grid-cols-3 md:gap-8 lg:gap-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-12 lg:pb-24">
+      <div className="md:grid md:grid-cols-3 md:gap-12 lg:gap-16">
         {/* Sticky Title Column (Left) */}
         <div className="md:col-span-1 md:sticky md:top-24 h-fit mb-12 md:mb-0 text-center md:text-left">
           <motion.h1
-            className="text-3xl md:text-4xl font-bold text-stone-900 mb-4"
+            className="text-3xl md:text-4xl font-bold text-stone-900 mb-4 font-serif"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -119,21 +119,21 @@ export default function DineInPolicyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Welcome to Guglu&apos;s Cafe! To help ensure a comfortable and enjoyable experience for all our guests and staff, we kindly ask you to observe the following guidelines during your visit.
+            Welcome to GLENROAST! To help ensure a comfortable and enjoyable experience for all our guests and staff, we kindly ask you to observe the following guidelines during your visit.
           </motion.p>
 
           {policies.map((policy, index) => (
             <motion.section
               key={index}
-              className={`p-6 ${index < policies.length - 1 ? 'pb-8 border-b border-gray-200' : ''}`}
+              className={`px-6 ${index < policies.length - 1 ? 'py-6 pb-8 border-b border-stone-200' : 'py-6'}`}
               variants={sectionVariant}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               <div className="flex items-center gap-3 mb-4">
                 {policy.icon && <policy.icon className="h-6 w-6 text-stone-900 flex-shrink-0" aria-hidden="true" />}
-                <h2 className="text-2xl font-semibold text-stone-900">{policy.title}</h2>
+                <h2 className="text-2xl font-semibold text-stone-900 font-serif">{policy.title}</h2>
               </div>
               <div className="space-y-2 text-gray-700 leading-relaxed mt-2 pl-[calc(1.5rem+0.75rem)]">
                  {policy.points.map((point, pIndex) => (

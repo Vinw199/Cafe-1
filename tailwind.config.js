@@ -12,6 +12,8 @@ module.exports = {
       fontFamily: {
         // Set Poppins as the default sans-serif font
         sans: ["var(--font-poppins)", ...fontFamily.sans],
+        // Define Lora as the serif font
+        serif: ["var(--font-lora)", ...fontFamily.serif],
         // Keep Geist available if needed
         geist: ["var(--font-geist-sans)"],
         geistMono: ["var(--font-geist-mono)"],

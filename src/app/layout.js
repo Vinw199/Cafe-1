@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { Poppins } from 'next/font/google';
+import { Poppins, Lora } from 'next/font/google';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -20,16 +20,23 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
+const lora = Lora({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-lora',
+  display: 'swap',
+});
+
 export const metadata = {
-  title: "Guglu's Cafe - Jorhat",
-  description: "A women led neighbourhood coffee shop in Jorhat, Assam.",
+  title: "GLENROAST - Jorhat",
+  description: "Specialty coffee shop in Jorhat, Assam.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased flex flex-col min-h-screen bg-[#F8F5F2]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${lora.variable} font-sans antialiased flex flex-col min-h-screen bg-[#F8F5F2]`}
       >
         <Navbar />
         <main className="flex-grow">
