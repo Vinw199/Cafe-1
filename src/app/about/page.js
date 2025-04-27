@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import {
+  motion,
+} from 'framer-motion';
 import Link from 'next/link';
 
 // Basic animation variant for fade-in
@@ -35,14 +36,8 @@ const AboutPage = () => {
         initial="hidden"
         animate="visible"
       >
-        <Image
-          src="/images/about-hero.jpg" // Placeholder path
-          alt="Warm ambiance of Glenroast Cafe"
-          layout="fill"
-          objectFit="cover"
-          priority
-          className="opacity-90" // Slight opacity like menu hero
-        />
+        {/* Placeholder Div for Hero */}
+        <div className="absolute inset-0 bg-stone-300 opacity-90"></div>
         {/* Optional overlay if needed later 
          <div className="absolute inset-0 bg-black bg-opacity-10"></div> 
          */}
@@ -54,7 +49,7 @@ const AboutPage = () => {
 
         {/* Our Vision Section - Now directly inside the max-w container */}
         <motion.section
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start mb-16 lg:mb-24"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 lg:mb-24"
           variants={sectionVariant}
           initial="hidden"
           whileInView="visible"
@@ -79,51 +74,37 @@ const AboutPage = () => {
             </p>
           </div>
 
-          {/* Right Column: Supporting Images - Overlapping Layout */}
-          <div className="md:mt-12 relative"> 
-            {/* Wrapper 1 for sizing */}
-            <div className="w-11/12 mx-auto md:mx-0"> 
-              {/* Image Placeholder 1 */}
-              <motion.div
-                className="aspect-video rounded-lg shadow-md relative overflow-hidden bg-stone-300 z-0"
-                variants={sectionVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <Image
-                  src="/images/about-detail-1.jpg" // Placeholder
-                  alt="Detail shot of Glenroast interior or coffee"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
-                />
-              </motion.div>
-            </div>
-
-            {/* Wrapper 2 for sizing & positioning - Make smaller */}
-             <div className="w-5/6 ml-auto mr-0">
-              {/* Image Placeholder 2 - Apply overlap styling */}
-              <motion.div
-                className="aspect-[4/3] rounded-lg shadow-xl relative overflow-hidden bg-stone-300 -mt-16 transform rotate-1 z-10"
-                variants={sectionVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <Image
-                  src="/images/about-detail-2.jpg" // Placeholder
-                  alt="Another detail shot, perhaps the terrace view or event space"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg"
-                />
-              </motion.div>
-            </div>
+          {/* Right Column: Supporting Images - Reworked Layout */}
+          <div className="md:mt-12"> {/* Adjusted margin if needed */} 
+             {/* Flex container for the two images */} 
+             <div className="flex items-center justify-center md:justify-start gap-8 h-80"> {/* Added height like homepage */} 
+                {/* Image 1 (Placeholder) */}
+                <motion.div 
+                 className="relative w-1/2 h-[350px] rounded-lg overflow-hidden shadow-lg -translate-y-8 bg-stone-200" // Same style as homepage
+                 variants={sectionVariant} // Apply section variant for fade/slide
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={{ once: true, amount: 0.1 }}
+                 whileHover={{ scale: 1.05 }}
+                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                 {/* Placeholder text (optional) */}
+                 {/* <span className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-xs">Vision Image 1</span> */} 
+                </motion.div>
+                 {/* Image 2 (Placeholder) */}
+                <motion.div 
+                 className="relative w-1/2 h-[350px] rounded-lg overflow-hidden shadow-lg translate-y-8 bg-stone-200" // Same style as homepage
+                 variants={sectionVariant} // Apply section variant for fade/slide
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={{ once: true, amount: 0.1 }}
+                 transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }} // Slight delay
+                 whileHover={{ scale: 1.05 }}
+                >
+                 {/* Placeholder text (optional) */}
+                 {/* <span className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-xs">Vision Image 2</span> */} 
+                </motion.div>
+             </div>
           </div>
         </motion.section>
 

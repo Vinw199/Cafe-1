@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { Poppins, Lora } from 'next/font/google';
+import { Cabin, Lora } from 'next/font/google';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const poppins = Poppins({
+const cabin = Cabin({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
+  variable: '--font-cabin',
+  display: 'swap',
 });
 
 const lora = Lora({
@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${lora.variable} font-sans antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cabin.className} ${lora.className} font-sans antialiased flex flex-col min-h-screen`}
       >
         <NextNProgress 
           color="#d97706"

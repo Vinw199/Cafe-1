@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        // Set Poppins as the default sans-serif font
-        sans: ["var(--font-poppins)", ...fontFamily.sans],
+        // Set Cabin as the default sans-serif font
+        sans: ["var(--font-cabin)", ...fontFamily.sans],
         // Define Lora as the serif font
         serif: ["var(--font-lora)", ...fontFamily.serif],
         // Keep Geist available if needed
