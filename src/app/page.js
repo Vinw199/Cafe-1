@@ -375,7 +375,7 @@ export default function HomePage() {
               <p className="text-stone-700 leading-relaxed text-sm">
                 More than just a café, GLENROAST is a lively hub designed for connection. 
                 Come for the welcoming atmosphere and friendly faces, stay for the conversations. 
-                It's also your peaceful environment to focus, work, or simply unwind.
+                It&apos;s also your peaceful environment to focus, work, or simply unwind.
               </p>
                {/* Maybe add a short list/bullet points if needed later */}
             </div>
@@ -401,7 +401,7 @@ export default function HomePage() {
                <h3 className="text-2xl lg:text-3xl font-semibold font-serif text-stone-800 mb-4">Our Craft</h3>
                {/* USP 1 description */}
                <p className="text-stone-700 leading-relaxed text-sm">
-                 We're passionate about introducing Jorhat to exceptional specialty coffees. 
+                 We&apos;re passionate about introducing Jorhat to exceptional specialty coffees. 
                  Explore our curated selection, expertly prepared, and discover unique flavours 
                  that might just become your new favourite brew.
                </p>
