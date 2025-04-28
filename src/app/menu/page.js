@@ -2,7 +2,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+
+// Add metadata export for the page title
+export const metadata = {
+  title: 'Menu', 
+};
 
 export default function MenuPage() {
 
@@ -29,6 +33,10 @@ export default function MenuPage() {
     {
       categoryName: "Coffee",
       column: 1,
+      aspectRatio: "aspect-[16/9]",
+      highlights: [
+        "Cappuccino", "Iced Latte", "Pour Over", "Vietnamese Iced Coffee"
+      ],
       subCategories: [
         {
           subCategoryName: "Hot",
@@ -73,6 +81,10 @@ export default function MenuPage() {
     {
       categoryName: "Iced Drinks (Non-Coffee)",
       column: 1,
+      aspectRatio: "aspect-square",
+      highlights: [
+        "Matcha Iced Latte", "Classic Mojito", "Seasonal Fruit Juice"
+      ],
       items: [
         { name: "Matcha Iced Latte" },
         { name: "Iced Tea" },
@@ -86,6 +98,10 @@ export default function MenuPage() {
     {
       categoryName: "Tea",
       column: 1,
+      aspectRatio: "aspect-[4/3]",
+      highlights: [
+        "Earl Grey", "Assam Tea", "Kashmiri Kawa"
+      ],
       items: [
         { name: "Earl Grey" },
         { name: "Peppermint" },
@@ -99,6 +115,10 @@ export default function MenuPage() {
     {
       categoryName: "From the bakery",
       column: 1,
+      aspectRatio: "aspect-[16/9]",
+      highlights: [
+        "Cloud Cheesecake", "Croissant", "Signature Tiramisu", "Pain Au Chocolat"
+      ],
       items: [
         { name: "Croissant" },
         { name: "Pain Au Chocolat" },
@@ -118,6 +138,10 @@ export default function MenuPage() {
       subCategories: [
         {
           subCategoryName: "Appetizer",
+          column: 1,
+          highlights: [
+            "Peri Peri Potato Wedges", "Chicken Keema Bruschetta", "Chipotle Chicken Tacos"
+          ],
           items: [
             { name: "Peri Peri Potato Wedges", description: "Hand-Cut Fried Potato Wedges, Peri Peri Homemade Spice" },
             { name: "Nachos (Veg/Non-Veg)", description: "Corn Nachos, Guacamole, Sour Cream, Tomato Salsa" },
@@ -128,17 +152,10 @@ export default function MenuPage() {
           ]
         },
         {
-          subCategoryName: "Roastery Club Breakfast",
-          items: [
-            { name: "Full English Breakfast Non-Veg", description: "Chicken Sausages, Eggs (Fried, Poached, Scrambled), Grilled Tomatoes, Mushrooms, Baked Beans, Toast" },
-            { name: "Full English Breakfast Veg", description: "Veggie Sausages, Grilled Tomatoes, Mushrooms, Baked Beans, Toast" },
-            { name: "Classic Eggs Benedict", description: "Toast, Ham, Poached Egg, Hollandaise Sauce" },
-            { name: "Shakshuka", description: "Tomatoes, Onions, Garlic, Spices, Poached Eggs" },
-            { name: "Pancakes & Berries", description: "Whole Wheat Pancakes, Honey Mascarpone, Fresh Fruits" },
-          ]
-        },
-        {
           subCategoryName: "Sandwich",
+          highlights: [
+            "Glenroast's Special Sandwich", "Club Sandwich Non-Veg", "BBQ Chicken Sandwich"
+          ],
           items: [
             { name: "Glenroast's Special Sandwich (Veg/Non-Veg)", description: "Chicken/Paneer Keema, Grilled Onions, Tomatoes, Egg, Cheese" },
             { name: "Club Sandwich Non-Veg", description: "Chicken, Mustard Mayo, Bacon, Egg, Grilled Onions, Lettuce, Tomatoes" },
@@ -148,7 +165,23 @@ export default function MenuPage() {
           ]
         },
         {
+          subCategoryName: "Roastery Club Breakfast",
+          highlights: [
+            "Full English Breakfast Non-Veg", "Classic Eggs Benedict", "Pancakes & Berries"
+          ],
+          items: [
+            { name: "Full English Breakfast Non-Veg", description: "Chicken Sausages, Eggs (Fried, Poached, Scrambled), Grilled Tomatoes, Mushrooms, Baked Beans, Toast" },
+            { name: "Full English Breakfast Veg", description: "Veggie Sausages, Grilled Tomatoes, Mushrooms, Baked Beans, Toast" },
+            { name: "Classic Eggs Benedict", description: "Toast, Ham, Poached Egg, Hollandaise Sauce" },
+            { name: "Shakshuka", description: "Tomatoes, Onions, Garlic, Spices, Poached Eggs" },
+            { name: "Pancakes & Berries", description: "Whole Wheat Pancakes, Honey Mascarpone, Fresh Fruits" },
+          ]
+        },
+        {
           subCategoryName: "Wood Fired Pizza",
+          highlights: [
+            "Classic Margherita", "Roastery's Signature BBQ Chicken", "Pepperoni"
+          ],
           items: [
             { name: "Classic Margherita", description: "Mozzarella, Italian Tomato Sauce, Basil" },
             { name: "Farmfresh", description: "Mozzarella, Sundried Tomatoes, Olives, Corn, Bellpeppers" },
@@ -160,6 +193,9 @@ export default function MenuPage() {
         },
         {
           subCategoryName: "Roastery Club favorites",
+          highlights: [
+            "Boojum Burrito", "Traditional Irish Fish & Chips", "Juicy Lucy Grilled Chicken Burger"
+          ],
           items: [
             { name: "Boojum Burrito (Veg/Non-Veg)", description: "Cilantro Lime Rice, Cheddar cheese, Avocado, Tomato, Salsa sauce" },
             { name: "Traditional Irish Fish & Chips", description: "With Tartar Sauce and Chips" },
@@ -186,180 +222,126 @@ export default function MenuPage() {
         initial="hidden"
         animate="visible"
       >
-        <Image
-          src="/images/menu-hero.jpg"
-          alt="Glenroast Cafe Ambiance or Signature Item"
-          layout="fill"
-          objectFit="cover"
-          priority
-          className="opacity-90"
-        />
+        {/* Placeholder Div for Hero */}
+        <div className="absolute inset-0 bg-stone-200 opacity-90"></div>
+        {/* Optional Title Overlay if needed */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white text-shadow-md z-10">Our Menu</h1>
+        </div>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 pt-12 pb-16 lg:pt-16 lg:pb-24">
-        <motion.h1
-          className="text-4xl md:text-5xl font-bold font-serif text-stone-900 mb-12 md:mb-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-        >
-          Our Menu
-        </motion.h1>
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-16 lg:py-24">
+        {/* Removed separate Menu H1 as it's in the hero now */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-16">
           {/* Column 1: Drinks & Bakery */}
-          <div className="space-y-10">
+          <div className="space-y-16">
             {menuData.filter(cat => cat.column === 1).map((category, index, arr) => (
               <React.Fragment key={`${category.categoryName}-${index}-frag`}>
                 <motion.div
                   key={`${category.categoryName}-${index}`}
-                  className="mb-12"
+                  className=""
                   variants={sectionVariant}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.1 }}
                 >
-                  <h2 className="text-2xl font-semibold font-serif text-stone-800 mb-4">
+                  <h2 className="text-3xl md:text-4xl font-bold font-serif text-stone-900 mb-8">
                     {category.categoryName}
                   </h2>
-                  <div className="space-y-4">
-                    {category.subCategories ? (
-                      category.subCategories.map((subCategory, subIndex) => (
-                        <div key={`${subCategory.subCategoryName}-${subIndex}`} className="ml-2">
-                          <h3 className="text-lg font-medium text-stone-700 mb-2">
-                            {subCategory.subCategoryName}
-                          </h3>
-                          <ul className="space-y-2 ml-4">
-                            {subCategory.items.map((item, itemIndex) => (
-                              <li key={`${item.name}-${itemIndex}`} className="text-stone-700">
-                                <span className="font-medium">{item.name}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))
-                    ) : (
-                      <ul className="space-y-2 ml-2">
-                        {category.items.map((item, itemIndex) => (
-                          <li key={`${item.name}-${itemIndex}`} className="text-stone-700">
-                            <span className="font-medium">{item.name}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+
+                  {/* Standard Single Image Placeholder for all categories in Col 1 */}
+                  <div className={`${category.aspectRatio || 'aspect-[16/9]'} bg-stone-200 mb-6 shadow-sm overflow-hidden relative`}>
+                    <p className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-sm">(Visual for {category.categoryName})</p>
                   </div>
+
+                  {/* Highlights List */}
+                  <ul className="space-y-2 text-stone-700 mb-4">
+                    {category.highlights?.map((item, itemIndex) => (
+                      <li key={`${item}-${itemIndex}`} className="font-medium">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* More to Discover Teaser */}
+                  <p className="text-stone-600 italic text-sm mt-6">
+                    ...and more to explore at the cafe!
+                  </p>
                 </motion.div>
-
-                {/* Coffee Image - Resize */}
-                {category.categoryName === "Coffee" && (
-                  <motion.div
-                    className="aspect-video rounded-lg shadow-md relative overflow-hidden mt-6 mb-12 w-5/6"
-                    variants={sectionVariant}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                  >
-                    <Image
-                      src="/images/menu-coffee-showcase.jpg"
-                      alt="Artisanal coffee preparation"
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-lg"
-                    />
-                  </motion.div>
-                )}
-
-                {/* Bakery Image - Resize */}
-                {category.categoryName === "From the bakery" && (
-                  <motion.div
-                    className="aspect-video rounded-lg shadow-md relative overflow-hidden my-6 w-5/6"
-                    variants={sectionVariant}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                  >
-                    <Image
-                      src="/images/menu-bakery-showcase.jpg"
-                      alt="Freshly baked goods from Glenroast"
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-lg"
-                    />
-                  </motion.div>
-                )}
               </React.Fragment>
             ))}
           </div>
 
           {/* Column 2: Food */}
-          <div className="space-y-10">
+          <div className="space-y-16">
             {menuData.filter(cat => cat.column === 2).map((category) => (
-              <div key={`${category.categoryName}-food-cat`}>
-                {category.subCategories && category.subCategories.map((subCategory, subIndex, subArr) => (
-                  <React.Fragment key={`${subCategory.subCategoryName}-${subIndex}-frag`}>
-                    <motion.div
-                      key={`${subCategory.subCategoryName}-${subIndex}`}
-                      className="mb-12"
-                      variants={sectionVariant}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, amount: 0.1 }}
-                    >
-                      <h2 className="text-2xl font-semibold font-serif text-stone-800 mb-4">
-                        {subCategory.subCategoryName}
-                      </h2>
-                      <ul className="space-y-3 ml-2">
-                        {subCategory.items.map((item, itemIndex) => (
-                          <li key={`${item.name}-${itemIndex}`}>
-                            <p className="text-stone-800 font-medium">{item.name}</p>
+              // Render each subcategory as its own visual block
+              <React.Fragment key={`${category.categoryName}-food-cat`}>
+                {category.subCategories && category.subCategories.filter(subCat => subCat.column !== 1).map((subCategory, subIndex, subArr) => {
+                  // Determine image aspect ratio class based on subcategory
+                  const imageAspectClass = subCategory.subCategoryName === "Appetizer" ? 'aspect-[4/3]' :
+                                           subCategory.subCategoryName === "Roastery Club Breakfast" ? 'aspect-[16/9]' :
+                                           'aspect-[16/9]'; // Default for others
+
+                  return (
+                  // Use the structure from Column 1 for each subcategory
+                  <motion.div
+                    key={`${subCategory.subCategoryName}-${subIndex}`}
+                    className=""
+                    variants={sectionVariant}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                  >
+                    {/* Use subcategory name as the heading */}
+                    <h2 className="text-3xl md:text-4xl font-bold font-serif text-stone-900 mb-8">
+                      {subCategory.subCategoryName}
+                    </h2>
+
+                    {/* --- Render Text -> Image for ALL food subcategories --- */}
+                    <>
+                      {/* Highlights List (First) - Show Description */}
+                      <ul className="space-y-3 text-stone-700 mb-4">
+                        {subCategory.items
+                          .filter(item => subCategory.highlights?.includes(item.name.replace(/\s*\(Veg\/Non-Veg\)/, '' )))
+                          .map((item, itemIndex) => (
+                          <li key={`${item.name}-${itemIndex}-desc`}>
+                            <p className="font-medium">{item.name}</p>
                             {item.description && (
-                              <p className="text-sm text-stone-600 mt-1 ml-2">
-                                {item.description}
-                              </p>
+                              <p className="text-sm text-stone-600 mt-1">{item.description}</p>
                             )}
                           </li>
                         ))}
                       </ul>
-                    </motion.div>
+                      {/* Image Placeholder (Second) - Use calculated class */}
+                      <div className={`${imageAspectClass} bg-stone-200 mb-6 shadow-sm overflow-hidden relative`}>
+                        <p className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-sm">(Visual for {subCategory.subCategoryName})</p>
+                      </div>
+                    </>
 
-                    {/* Pizza Image - Resize */}
-                    {subCategory.subCategoryName === "Wood Fired Pizza" && (
-                      <motion.div
-                        className="aspect-video rounded-lg shadow-md relative overflow-hidden mt-6 mb-12 w-5/6"
-                        variants={sectionVariant}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.1 }}
-                      >
-                        <Image
-                          src="/images/menu-pizza-showcase.jpg"
-                          alt="Delicious wood fired pizza"
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-lg"
-                        />
-                      </motion.div>
-                    )}
-                  </React.Fragment>
-                ))}
-                {!category.subCategories && category.items && (
-                  <ul className="space-y-3 ml-2">
-                    {category.items.map((item, itemIndex) => (
-                      <li key={`${item.name}-${itemIndex}-direct`}>
-                        <p className="text-stone-800 font-medium">{item.name}</p>
-                        {item.description && (
-                          <p className="text-sm text-stone-600 mt-1 ml-2">
-                            {item.description}
-                          </p>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+                    {/* More to Discover Teaser */}
+                    <p className="text-stone-600 italic text-sm mt-6">
+                      ...and more {subCategory.subCategoryName.toLowerCase()} options available!
+                    </p>
+                  </motion.div>
+                  );
+                })}
+              </React.Fragment>
             ))}
           </div>
         </div>
+
+        {/* Final CTA */}
+        <motion.p
+          className="text-center text-lg font-medium text-stone-800 mt-16 lg:mt-24"
+          initial={{ opacity: 0}}
+          animate={{ opacity: 1}}
+          transition={{ delay: 0.5, duration: 0.8}}
+        >
+          Visit Glenroast for the full menu experience and seasonal specials!
+        </motion.p>
+
       </div>
     </div>
   );

@@ -29,7 +29,12 @@ const lora = Lora({
 });
 
 export const metadata = {
-  title: "GLENROAST - Jorhat",
+  // Define a base URL if needed for absolute URLs in metadata (optional but good practice)
+  // metadataBase: new URL('https://yourdomain.com'), 
+  title: {
+    default: 'GLENROAST', // Default title for homepage
+    template: '%s - GLENROAST', // Template for other pages
+  },
   description: "Specialty coffee, community hub, and quality goods in Jorhat, Assam.",
 };
 

@@ -89,7 +89,7 @@ const sectionVariant = {
 
 export default function DineInPolicyPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-12 lg:pb-24">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-16 lg:pb-24">
       <div className="md:grid md:grid-cols-3 md:gap-12 lg:gap-16">
         {/* Sticky Title Column (Left) */}
         <div className="md:col-span-1 md:sticky md:top-24 h-fit mb-12 md:mb-0 text-center md:text-left">

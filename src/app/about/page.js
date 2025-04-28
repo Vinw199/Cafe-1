@@ -6,6 +6,11 @@ import {
 } from 'framer-motion';
 import Link from 'next/link';
 
+// Add metadata export for the page title
+export const metadata = {
+  title: 'About', 
+};
+
 // Basic animation variant for fade-in
 const fadeIn = {
   hidden: { opacity: 0 },
@@ -80,7 +85,7 @@ const AboutPage = () => {
              <div className="flex items-center justify-center md:justify-start gap-8 h-80"> {/* Added height like homepage */} 
                 {/* Image 1 (Placeholder) */}
                 <motion.div 
-                 className="relative w-1/2 h-[350px] rounded-lg overflow-hidden shadow-lg -translate-y-8 bg-stone-200" // Same style as homepage
+                 className="relative w-1/2 h-[350px] overflow-hidden shadow-lg -translate-y-8 bg-stone-200" // Same style as homepage
                  variants={sectionVariant} // Apply section variant for fade/slide
                  initial="hidden"
                  whileInView="visible"
@@ -93,7 +98,7 @@ const AboutPage = () => {
                 </motion.div>
                  {/* Image 2 (Placeholder) */}
                 <motion.div 
-                 className="relative w-1/2 h-[350px] rounded-lg overflow-hidden shadow-lg translate-y-8 bg-stone-200" // Same style as homepage
+                 className="relative w-1/2 h-[350px] overflow-hidden shadow-lg translate-y-8 bg-stone-200" // Same style as homepage
                  variants={sectionVariant} // Apply section variant for fade/slide
                  initial="hidden"
                  whileInView="visible"
@@ -111,7 +116,7 @@ const AboutPage = () => {
         {/* Join Us - Call to Action Section - Corrected Styling */}
         <motion.section
           // Correct background and ensure padding/margins are appropriate
-          className="bg-stone-200 rounded-lg shadow-lg p-12 lg:p-16 my-16 lg:my-24 text-center"
+          className="bg-stone-200 shadow-lg p-12 lg:p-16 my-16 lg:my-24 text-center"
           variants={sectionVariant}
           initial="hidden"
           whileInView="visible"

@@ -411,7 +411,7 @@ export default function HomePage() {
             <div className="md:order-first">
                {/* Container for Two Horizontally Placed, Vertically Offset Images */} 
                {/* Use flex, maybe items-center for baseline, then translate */}
-               <div className="flex items-center justify-center md:justify-start gap-4 h-80"> {/* Match height of other side's image */} 
+               <div className="flex items-center justify-center md:justify-start gap-8 h-80"> {/* Match height of other side's image */} 
                   {/* Image 1a (Slightly Up) */}
                   <motion.div 
                     // Increase height

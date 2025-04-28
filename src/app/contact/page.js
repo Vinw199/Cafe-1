@@ -42,10 +42,10 @@ const ContactPage = () => {
 
   return (
     // Reduced top padding
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-12 lg:pb-24">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 lg:pt-16 lg:pb-24">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
         {/* Left Column: Contains the two animated sections */}
-        <div className="space-y-10">
+        <div className="space-y-16">
           {/* Contact Info Section - use specific variant */}
           <motion.div
             className="space-y-6"
@@ -58,27 +58,27 @@ const ContactPage = () => {
             <div className="space-y-4 text-gray-700">
               {/* Address */}
               <div className="flex items-start gap-3">
-                <MapPinIcon className="h-6 w-6 text-stone-800 flex-shrink-0 mt-1" aria-hidden="true" />
-                <span>near primary health centre, marna, siolim, goa : 403517</span>
+                <MapPinIcon className="h-6 w-6 text-stone-800 flex-shrink-0" aria-hidden="true" />
+                <span>Club Road, Jorhat : 785001</span>
               </div>
               {/* Hours */}
               <div className="flex items-start gap-3">
-                <ClockIcon className="h-6 w-6 text-stone-800 flex-shrink-0 mt-1" aria-hidden="true" />
+                <ClockIcon className="h-6 w-6 text-stone-800 flex-shrink-0" aria-hidden="true" />
                 <span>
-                  All days: 9am - 6.30pm<br />
-                  Wednesdays: closed
+                  All days: 10am - 10pm<br />
+                  Sundays: closed
                 </span>
               </div>
               {/* Phone */}
               <div className="flex items-start gap-3">
-                <PhoneIcon className="h-6 w-6 text-stone-900 flex-shrink-0 mt-1" aria-hidden="true" />
+                <PhoneIcon className="h-6 w-6 text-stone-900 flex-shrink-0" aria-hidden="true" />
                 <a href="tel:+919834803384" className="text-amber-700 hover:text-amber-600 transition-colors duration-200 ease-in-out">
                   +91 98348 03384
                 </a>
               </div>
               {/* Email */}
               <div className="flex items-start gap-3">
-                <EnvelopeIcon className="h-6 w-6 text-stone-900 flex-shrink-0 mt-1" aria-hidden="true" />
+                <EnvelopeIcon className="h-6 w-6 text-stone-900 flex-shrink-0" aria-hidden="true" />
                 <a href="mailto:hello@alag.co" className="text-amber-700 hover:text-amber-600 transition-colors duration-200 ease-in-out">
                   hello@alag.co
                 </a>
@@ -95,7 +95,7 @@ const ContactPage = () => {
           // Removed explicit transition prop
           >
             <h2 className="text-3xl font-semibold text-stone-900 mb-4 font-serif">Visit Us</h2>
-            <div className="aspect-video relative overflow-hidden rounded-md bg-gray-200">
+            <div className="aspect-video relative overflow-hidden bg-gray-200">
               {/* 
               <Image
                 src="/path/to/your/map-image.jpg" // *** REPLACE THIS PATH ***
