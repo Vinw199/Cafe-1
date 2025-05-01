@@ -83,7 +83,7 @@ const Navbar = () => {
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
             >
               <div className="flex-shrink-0 flex items-center">
-                <Link href="/" className="text-2xl font-bold text-stone-800 font-serif">
+                <Link href="/" className="text-2xl font-bold text-stone-800 font-display">
                    GLENROAST
                 </Link>
               </div>

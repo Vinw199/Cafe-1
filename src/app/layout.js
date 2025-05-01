@@ -1,32 +1,35 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import { Cabin, Lora } from 'next/font/google';
+// import { Geist_Mono } from "next/font/google"; 
+import { Cabin, Playfair_Display, Oswald } from 'next/font/google'; // Add Cabin, Playfair_Display, and Oswald import
+// import { Playfair_Display } from 'next/font/google';
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NextNProgress from 'nextjs-toploader';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+// Add Cabin configuration
 const cabin = Cabin({
   subsets: ['latin'],
-  variable: '--font-cabin',
+  variable: '--font-cabin', // Define variable
   display: 'swap',
 });
 
-const lora = Lora({
+// Add Playfair_Display configuration
+const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-lora',
+  weight: ['400', '500', '600', '700', '800'], // Include desired weights
+  variable: '--font-playfair-display', // Define variable
   display: 'swap',
 });
+
+// Add Oswald configuration
+const oswald = Oswald({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'], // Choose appropriate weights for Oswald
+  variable: '--font-oswald', // Define CSS variable
+  display: 'swap',
+});
+
+// Remove all other font configurations
 
 export const metadata = {
   // Define a base URL if needed for absolute URLs in metadata (optional but good practice)
@@ -40,9 +43,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfairDisplay.variable} ${oswald.variable}`}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cabin.className} ${lora.className} font-sans antialiased flex flex-col min-h-screen`}
+        className={`${cabin.className} font-sans antialiased flex flex-col min-h-screen`}
       >
         <NextNProgress 
           color="#d97706"

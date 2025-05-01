@@ -9,14 +9,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Add back fontFamily extension
       fontFamily: {
         // Set Cabin as the default sans-serif font
         sans: ["var(--font-cabin)", ...fontFamily.sans],
-        // Define Lora as the serif font
-        serif: ["var(--font-lora)", ...fontFamily.serif],
-        // Keep Geist available if needed
-        geist: ["var(--font-geist-sans)"],
-        geistMono: ["var(--font-geist-mono)"],
+        // Removed serif definition as font-display is used instead
+        // serif: ["var(--font-playfair-display)", 'Georgia', 'serif'], 
+        // Use 'display' for the Playfair Display variable
+        display: ["var(--font-playfair-display)", 'Georgia', 'serif'], 
       },
       // Add any other theme extensions here (e.g., colors)
     },

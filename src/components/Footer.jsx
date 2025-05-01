@@ -21,7 +21,7 @@ const Footer = () => {
 
   return (
     <footer className="text-stone-800 body-font bg-stone-50">
-      <div className="max-w-7xl container px-5 py-10 mx-auto flex items-center justify-center md:justify-between flex-wrap gap-y-8 gap-x-12">
+      <div className="max-w-7xl container px-5 py-10 mx-auto flex items-center justify-around lg:justify-between flex-wrap gap-y-8 gap-x-12">
 
         {/* Section 1: Logo/Address */}
         <motion.div
@@ -33,7 +33,7 @@ const Footer = () => {
           transition={{ ...baseTransition, delay: 0.1 }}
         >
           <Link href="/" className="flex title-font font-medium items-center justify-center md:justify-start text-stone-900 mb-2">
-            <span className="text-2xl font-bold uppercase font-serif">GLENROAST</span>
+            <span className="text-2xl font-bold uppercase font-display">GLENROAST</span>
           </Link>
           <p className="text-sm text-stone-700">
             Club Road, Jorhat, Assam
