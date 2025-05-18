@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import MenuCategoryNav from './MenuCategoryNav';
+// import Image from 'next/image';
 import {
   ChevronRightIcon,
   MagnifyingGlassIcon,
@@ -14,7 +15,34 @@ import {
 //   title: 'Menu', 
 // };
 
-export default function MenuPageClient() { // Renamed component
+// New MenuCategoryNav component (will be created in a separate file later, placeholder for now)
+// const MenuCategoryNav = ({ categories, activeFilter, onFilterChange }) => {
+//   // Basic implementation for structure - will be fleshed out
+//   return (
+//     <div className="sticky top-16 bg-white z-30 shadow-sm mb-8 py-3"> {/* Adjust top based on Navbar height */}
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <div className="flex space-x-4 overflow-x-auto scrollbar-hide">
+//           {categories.map((category) => (
+//             <button
+//               key={category}
+//               onClick={() => onFilterChange(category)}
+//               className={`px-4 py-2 text-sm font-medium rounded-md whitespace-nowrap
+//                 ${activeFilter === category 
+//                   ? 'bg-amber-600 text-white' 
+//                   : 'text-stone-700 hover:bg-stone-100'}
+//                 transition-colors duration-150 ease-in-out`}
+//             >
+//               {category}
+//             </button>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+export default function MenuPageClient() {
+  const [activeFilter, setActiveFilter] = useState('All');
 
   const fadeIn = {
     hidden: { opacity: 0 },
@@ -33,191 +61,210 @@ export default function MenuPageClient() { // Renamed component
     }
   };
 
-  // Structure menu data
+  // Restructured menuData based on "Menu - updated.txt"
   const menuData = [
-    // --- Column 1: Drinks & Bakery ---
+    // --- Coffee & Drinks (Column 1) ---
     {
-      categoryName: "Coffee",
+      id: "coffee",
+      displayName: "Coffee",
       column: 1,
+      mainFilterCategory: "Coffee & Drinks",
       aspectRatio: "aspect-[16/9]",
-      highlights: [
-        "Cappuccino", "Iced Latte", "Pour Over", "Vietnamese Iced Coffee"
-      ],
-      subCategories: [
+      content: [
         {
           subCategoryName: "Hot",
           items: [
-            { name: "Americano" },
-            { name: "Long Black" },
-            { name: "Cappuccino" },
-            { name: "Latte" },
-            { name: "Flat White" },
-            { name: "Cortado" },
-            { name: "Espresso (Single)" },
-            { name: "Espresso Macchiato" },
-            { name: "Piccolo" },
-            { name: "Mocha" },
-            { name: "Pour Over" },
+            { name: "Americano" }, { name: "Cappuccino" }, { name: "Latte" }, 
+            { name: "Pour Over" }, { name: "Flat White" }, { name: "Cortado" },
+            { name: "Espresso (Single)" }, { name: "Espresso Macchiato" },
+            { name: "Piccolo" }, { name: "Mocha" }
           ]
         },
         {
           subCategoryName: "Cold",
           items: [
-            { name: "Iced Americano" },
-            { name: "Iced Latte" },
-            { name: "Iced Mocha" },
-            { name: "Affogato" },
-            { name: "Orangepresso" },
-            { name: "Vietnamese Iced Coffee" },
-            { name: "Cold Brew" },
+            { name: "Iced Americano" }, { name: "Iced Latte" }, { name: "Cold Brew" },
+            { name: "Iced Mocha" }, { name: "Affogato" }, { name: "Orangepresso" },
+            { name: "Vietnamese Iced Coffee" }
           ]
         },
         {
-          subCategoryName: "Add ons",
+          subCategoryName: "Add Ons",
           items: [
-            { name: "Vanilla" },
-            { name: "Hazelnut" },
-            { name: "Caramel" },
-            { name: "Ice Cream" },
-            { name: "Whipped Cream" },
+            { name: "Vanilla Syrup" }, { name: "Hazelnut Syrup" }, 
+            { name: "Caramel Syrup" }, { name: "Ice Cream" }, { name: "Whipped Cream" }
           ]
         }
       ]
     },
     {
-      categoryName: "Iced Drinks (Non-Coffee)",
+      id: "iced_drinks_non_coffee",
+      displayName: "Iced Drinks (Non-Coffee)",
       column: 1,
+      mainFilterCategory: "Coffee & Drinks",
       aspectRatio: "aspect-square",
-      highlights: [
-        "Matcha Iced Latte", "Classic Mojito", "Seasonal Fruit Juice"
-      ],
-      items: [
-        { name: "Matcha Iced Latte" },
-        { name: "Iced Tea" },
-        { name: "Fresh Lime Soda" },
-        { name: "Classic Mojito" },
-        { name: "Chocolate Shake" },
-        { name: "Vanilla Shake" },
-        { name: "Seasonal Fruit Juice" },
+      content: [ // Direct items, no subSections
+        { name: "Matcha Iced Latte" }, { name: "Iced Tea" }, { name: "Fresh Lime Soda" },
+        { name: "Classic Mojito" }, { name: "Chocolate Shake" }, { name: "Vanilla Shake" },
+        { name: "Seasonal Fruit Juice" }
       ]
     },
     {
-      categoryName: "Tea",
+      id: "tea",
+      displayName: "Tea",
       column: 1,
+      mainFilterCategory: "Coffee & Drinks",
       aspectRatio: "aspect-[4/3]",
-      highlights: [
-        "Earl Grey", "Assam Tea", "Kashmiri Kawa"
-      ],
-      items: [
-        { name: "Earl Grey" },
-        { name: "Peppermint" },
-        { name: "Assam Tea" },
-        { name: "Ginger and Lemongrass" },
-        { name: "Kashmiri Kawa" },
-        { name: "Chamomile" },
-        { name: "Green Tea" },
+      content: [ // Direct items
+        { name: "Earl Grey" }, { name: "Peppermint" }, { name: "Assam Tea" },
+        { name: "Ginger and Lemongrass" }, { name: "Kashmiri Kawa" },
+        { name: "Chamomile" }, { name: "Green Tea" }
       ]
     },
+    // --- Bakery (Column 1) ---
     {
-      categoryName: "From the bakery",
+      id: "bakery",
+      displayName: "From the bakery",
       column: 1,
+      mainFilterCategory: "Bakery",
       aspectRatio: "aspect-[16/9]",
-      highlights: [
-        "Cloud Cheesecake", "Croissant", "Signature Tiramisu", "Pain Au Chocolat"
-      ],
-      items: [
-        { name: "Croissant" },
-        { name: "Pain Au Chocolat" },
-        { name: "Banana Bread" },
-        { name: "Carrot Cake" },
-        { name: "Lemon Tart" },
-        { name: "Carmel Custard" }, // Note: Original text has typo "Carmel"
-        { name: "Blueberry Cheesecake" },
-        { name: "Lotus Biscoff Cheesecake" },
-        { name: "Signature Tiramisu" },
+      content: [ // Direct items
+        { name: "Croissant" }, { name: "Pain Au Chocolat" }, { name: "Banana Bread" },
+        { name: "Carrot Cake" }, { name: "Carmel Custard" }, // Typo from file "Carmel"
+        { name: "Blueberry Cheesecake" }, { name: "Lotus Biscoff Cheesecake" },
+        { name: "Signature Tiramisu" }
       ]
     },
-    // --- Column 2: Food ---
+    // --- Food Menu (Column 2) ---
     {
-      categoryName: "Food Menu",
+      id: "appetizers",
+      displayName: "Appetizer",
       column: 2,
-      subCategories: [
-        {
-          subCategoryName: "Appetizer",
-          column: 1,
-          highlights: [
-            "Peri Peri Potato Wedges", "Chicken Keema Bruschetta", "Chipotle Chicken Tacos"
-          ],
-          items: [
-            { name: "Peri Peri Potato Wedges", description: "Hand-Cut Fried Potato Wedges, Peri Peri Homemade Spice" },
-            { name: "Nachos (Veg/Non-Veg)", description: "Corn Nachos, Guacamole, Sour Cream, Tomato Salsa" },
-            { name: "Chicken Keema Bruschetta", description: "Multigrain Baguette, Chicken Keema, Cherry Tomatoes, Mozzarella, Balsamic Glaze" },
-            { name: "Avocado Toast & Eggs", description: "Sourdough Bread, Guacamole, Cherry Tomatoes, Mozzarella, Eggs" },
-            { name: "Chipotle Chicken Tacos", description: "Chipotle Chicken, Tomato Salsa, Guacamole, Sour Cream, Mozzarella" },
-            { name: "Rajma (Kidney Bean) Tacos", description: "Smashed Kidney Beans, Tomato Salsa, Guacamole, Sour Cream, Mozzarella" },
-          ]
-        },
-        {
-          subCategoryName: "Sandwich",
-          highlights: [
-            "Glenroast's Special Sandwich", "Club Sandwich Non-Veg", "BBQ Chicken Sandwich"
-          ],
-          items: [
-            { name: "Glenroast's Special Sandwich (Veg/Non-Veg)", description: "Chicken/Paneer Keema, Grilled Onions, Tomatoes, Egg, Cheese" },
-            { name: "Club Sandwich Non-Veg", description: "Chicken, Mustard Mayo, Bacon, Egg, Grilled Onions, Lettuce, Tomatoes" },
-            { name: "Club Sandwich Veg", description: "Tomatoes, Grilled Onions, Cucumber, Lettuce, Mustard Mayo" },
-            { name: "BBQ Chicken Sandwich", description: "Chicken, Texas BBQ Sauce, Grilled Onions, Cheese" },
-            { name: "Egg & Cheese Sandwich", description: "Boiled Egg Mash, Grilled Onions, Cheese" },
-          ]
-        },
-        {
-          subCategoryName: "Roastery Club Breakfast",
-          highlights: [
-            "Full English Breakfast Non-Veg", "Classic Eggs Benedict", "Pancakes & Berries"
-          ],
-          items: [
-            { name: "Full English Breakfast Non-Veg", description: "Chicken Sausages, Eggs (Fried, Poached, Scrambled), Grilled Tomatoes, Mushrooms, Baked Beans, Toast" },
-            { name: "Full English Breakfast Veg", description: "Veggie Sausages, Grilled Tomatoes, Mushrooms, Baked Beans, Toast" },
-            { name: "Classic Eggs Benedict", description: "Toast, Ham, Poached Egg, Hollandaise Sauce" },
-            { name: "Shakshuka", description: "Tomatoes, Onions, Garlic, Spices, Poached Eggs" },
-            { name: "Pancakes & Berries", description: "Whole Wheat Pancakes, Honey Mascarpone, Fresh Fruits" },
-          ]
-        },
-        {
-          subCategoryName: "Wood Fired Pizza",
-          highlights: [
-            "Classic Margherita", "Roastery's Signature BBQ Chicken", "Pepperoni"
-          ],
-          items: [
-            { name: "Classic Margherita", description: "Mozzarella, Italian Tomato Sauce, Basil" },
-            { name: "Farmfresh", description: "Mozzarella, Sundried Tomatoes, Olives, Corn, Bellpeppers" },
-            { name: "Mushroom and Caramelized Onions", description: "Fresh Local Mushrooms, Glazed Onions" },
-            { name: "Sicilian Burrata & Sundried Tomatoes", description: "Mozzarella, Burrata Cheese, Sundried Tomatoes, Basil" },
-            { name: "Roastery's Signature BBQ Chicken", description: "Mozzarella, BBQ Chicken, Caramelized Onions" },
-            { name: "Pepperoni", description: "Mozzarella, Pepperoni, Italian Tomato Sauce" },
-          ]
-        },
-        {
-          subCategoryName: "Roastery Club favorites",
-          highlights: [
-            "Boojum Burrito", "Traditional Irish Fish & Chips", "Juicy Lucy Grilled Chicken Burger"
-          ],
-          items: [
-            { name: "Boojum Burrito (Veg/Non-Veg)", description: "Cilantro Lime Rice, Cheddar cheese, Avocado, Tomato, Salsa sauce" },
-            { name: "Traditional Irish Fish & Chips", description: "With Tartar Sauce and Chips" },
-            { name: "Fiery Chicken Wings", description: "Spicy Chicken Wings in our house special signature sauce" },
-            { name: "Aglio e Olio (Veg/Non-Veg)", description: "Spaghetti tossed with olive oil, garlic, mushrooms, basil, parmesan cheese" },
-            { name: "All American Baked Mac & Cheese (Veg/Non-Veg)", description: "Macaroni in Creamy Cheese Sauce with Garlic Bread" },
-            { name: "Glenroast's Signature Nature Salad", description: "Quinoa, Avocado, Garden Veggies, Sunflower Seeds, Yogurt Dressing" },
-            { name: "Juicy Lucy Grilled Chicken Burger", description: "Grilled Chicken Patty, Cheddar Cheese, Fried Egg, Pickled Onions" },
-            { name: "Moroccan Falafel Veggie Burger", description: "Falafel Patty, Hummus, Avocado, Pickled onions, Sun-dried tomatoes, Garlic Mayo" },
-            { name: "Portmarnock Chicken Roast", description: "Stuffed Roasted Chicken Breast, Grilled Vegetables, Creamy Mashed Potatoes" },
-            { name: "Chicken Stroganoff", description: "Chicken, Mushrooms, Capsicum in white sauce with Buttered rice" },
-          ]
-        }
+      mainFilterCategory: "Food Menu",
+      aspectRatio: "aspect-[4/3]", // Example, adjust as needed
+      content: [ // Direct items with descriptions
+        { name: "Peri Peri Potato Wedges", description: "Hand-Cut Fried Potato Wedges, Peri Peri Homemade Spice" },
+        { name: "Nachos (Veg/Non-Veg)", description: "Corn Nachos, Guacamole, Sour Cream, Tomato Salsa" },
+        { name: "Chicken Bruschetta", description: "Sourdough Baguette, Grilled Chicken, Cherry Tomatoes, Mozzarella" }, // Updated desc.
+        { name: "Avocado Toast & Eggs", description: "Sourdough Bread, Guacamole, Eggs" }, // Updated desc.
+        { name: "Chipotle Chicken Tacos", description: "Chipotle Chicken, Tomato Salsa, Guacamole, Sour Cream, Mozzarella" },
+        { name: "Rajma (Kidney Bean) Tacos", description: "Smashed Kidney Beans, Tomato Salsa, Guacamole, Sour Cream, Mozzarella" }
+      ]
+    },
+    {
+      id: "breakfast",
+      displayName: "Roastery Club Breakfast",
+      column: 2,
+      mainFilterCategory: "Food Menu",
+      aspectRatio: "aspect-[16/9]",
+      content: [
+        { name: "Full English Breakfast Non-Veg", description: "Chicken Sausages, Eggs (Fried, Poached, Scrambled), Grilled Tomatoes, Mushrooms, Baked Beans, Toast" },
+        { name: "Full English Breakfast Veg", description: "Veggie Sausages, Grilled Tomatoes, Mushrooms, Baked Beans, Toast" },
+        { name: "Classic Eggs Benedict", description: "Toast, Ham, Poached Egg, Hollandaise Sauce" },
+        { name: "Shakshuka", description: "Tomatoes, Onions, Garlic, Spices, Poached Eggs" },
+        { name: "Pancakes & Berries", description: "Whole Wheat Pancakes, Honey Mascarpone, Fresh Fruits" }
+      ]
+    },
+    {
+      id: "sandwiches",
+      displayName: "Sandwich",
+      column: 2,
+      mainFilterCategory: "Food Menu",
+      aspectRatio: "aspect-[16/9]",
+      content: [
+        { name: "Glenroast's Special Sandwich (Veg/Non-Veg)", description: "Chicken/Paneer Keema, Grilled Onions, Tomatoes, Egg, Cheese" },
+        { name: "Club Sandwich Non-Veg", description: "Chicken, Mustard Mayo, Bacon, Egg, Grilled Onions, Lettuce, Tomatoes" },
+        { name: "Club Sandwich Veg", description: "Tomatoes, Grilled Onions, Cucumber, Lettuce, Mustard Mayo" },
+        { name: "BBQ Chicken Sandwich", description: "Chicken, Texas BBQ Sauce, Grilled Onions, Cheese" },
+        { name: "Egg & Cheese Sandwich", description: "Boiled Egg Mash, Grilled Onions, Cheese" }
+      ]
+    },
+    {
+      id: "pizza",
+      displayName: "Wood Fired Pizza",
+      column: 2,
+      mainFilterCategory: "Food Menu",
+      aspectRatio: "aspect-[16/9]",
+      content: [
+        { name: "Classic Margherita", description: "Mozzarella, Italian Tomato Sauce, Basil" },
+        { name: "Farmfresh", description: "Mozzarella, Sundried Tomatoes, Olives, Corn, Bellpeppers" },
+        { name: "Mushroom and Caramelized Onions", description: "Fresh Local Mushrooms, Glazed Onions" },
+        { name: "Sicilian Burrata & Sundried Tomatoes", description: "Mozzarella, Burrata Cheese, Sundried Tomatoes, Basil" },
+        { name: "Roastery's Signature BBQ Chicken", description: "Mozzarella, BBQ Chicken, Caramelized Onions" },
+        { name: "Pepperoni", description: "Mozzarella, Pepperoni, Italian Tomato Sauce" }
+      ]
+    },
+    {
+      id: "club_favorites",
+      displayName: "Roastery Club favorites", // Corrected capitalization
+      column: 2,
+      mainFilterCategory: "Food Menu",
+      aspectRatio: "aspect-[16/9]",
+      content: [
+        { name: "Burrito (Veg/Non-Veg)", description: "Cilantro Lime Rice, Cheddar cheese, Avocado, Tomato, Salsa sauce" }, // Updated name
+        { name: "Traditional Irish Fish & Chips", description: "With Tartar Sauce and Chips" },
+        { name: "Fiery Chicken Wings", description: "Spicy Chicken Wings in our house special signature sauce" },
+        { name: "Aglio e Olio (Veg/Non-Veg)", description: "Spaghetti tossed with olive oil, garlic, mushrooms, basil, parmesan cheese" },
+        { name: "All American Baked Mac & Cheese (Veg/Non-Veg)", description: "Macaroni in Creamy Cheese Sauce with Garlic Bread" },
+        { name: "Glenroast's Signature Nature Salad", description: "Quinoa, Avocado, Garden Veggies, Sunflower Seeds, Yogurt Dressing" },
+        { name: "Juicy Lucy Grilled Chicken Burger", description: "Grilled Chicken Patty, Cheddar Cheese, Fried Egg, Pickled Onions" },
+        { name: "Moroccan Falafel Veggie Burger", description: "Falafel Patty, Hummus, Avocado, Pickled onions, Sun-dried tomatoes, Garlic Mayo" },
+        { name: "Portmarnock Chicken Roast", description: "Stuffed Roasted Chicken Breast, Grilled Vegetables, Creamy Mashed Potatoes" },
+        { name: "Chicken Stroganoff", description: "Chicken, Mushrooms, Capsicum in white sauce with Buttered rice" }
       ]
     }
   ];
+  
+  const filterCategories = ["All", "Coffee & Drinks", "Bakery", "Food Menu"];
+
+  // Determine if content is an array of items or subSections
+  const renderContent = (contentBlock) => {
+    // Check if the first element in content has a subCategoryName property
+    if (contentBlock.content && contentBlock.content.length > 0 && contentBlock.content[0].subCategoryName) {
+      // It's an array of subSections
+      return contentBlock.content.map((subSection, ssIndex) => (
+        <div key={`${contentBlock.id}-sub-${ssIndex}`} className="mt-6"> {/* Added margin-top for subSections */}
+          <h3 className="text-xl font-semibold font-display text-stone-800 mb-3">
+            {subSection.subCategoryName}
+          </h3>
+          <ul className="space-y-2">
+            {subSection.items.map((item, iIndex) => (
+              <li key={`${contentBlock.id}-sub-${ssIndex}-item-${iIndex}`}>
+                <p className="text-stone-700">{item.name}</p>
+                {item.description && (
+                  <p className="text-sm text-stone-600 mt-0.5">{item.description}</p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ));
+    } else if (contentBlock.content && contentBlock.content.length > 0) {
+      // It's a direct array of items
+      return (
+        <ul className="space-y-2 mt-4"> {/* Added margin-top for direct items */}
+          {contentBlock.content.map((item, iIndex) => (
+            <li key={`${contentBlock.id}-item-${iIndex}`}>
+              <p className="text-stone-700">{item.name}</p>
+              {item.description && (
+                <p className="text-xs text-stone-600 mt-0.5">{item.description}</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return null;
+  };
+
+  const getFilteredMenuBlocks = () => {
+    if (activeFilter === 'All') {
+      return menuData; // Or we can return null/undefined and handle column-specific rendering below
+    }
+    return menuData.filter(cat => cat.mainFilterCategory === activeFilter);
+  };
+
+  const filteredBlocks = getFilteredMenuBlocks();
 
   return (
     // <div className="bg-[#F8F5F2]">
@@ -255,105 +302,92 @@ export default function MenuPageClient() { // Renamed component
         </div>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <MenuCategoryNav 
+        categories={filterCategories}
+        activeFilter={activeFilter}
+        onFilterChange={setActiveFilter}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-6 md:py-10 lg:py-16">
         {/* Removed separate Menu H1 as it's in the hero now */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-16">
-          {/* Column 1: Drinks & Bakery */}
-          <div className="space-y-16">
-            {menuData.filter(cat => cat.column === 1).map((category, index, arr) => (
-              <React.Fragment key={`${category.categoryName}-${index}-frag`}>
-                <motion.div
-                  key={`${category.categoryName}-${index}`}
-                  className=""
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.1 }}
-                >
-                  <h2 className="text-3xl md:text-4xl font-bold font-display text-stone-900 mb-8">
-                    {category.categoryName}
-                  </h2>
-
-                  {/* Standard Single Image Placeholder for all categories in Col 1 */}
-                  <div className={`${category.aspectRatio || 'aspect-[16/9]'} bg-stone-200 mb-6 shadow-sm overflow-hidden relative`}>
-                    <p className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-sm">(Visual for {category.categoryName})</p>
-                  </div>
-
-                  {/* Highlights List */}
-                  <ul className="space-y-2 text-stone-700 mb-4">
-                    {category.highlights?.map((item, itemIndex) => (
-                      <li key={`${item}-${itemIndex}`} className="font-medium">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* More to Discover Teaser */}
-                  <p className="text-stone-600 italic text-sm mt-6">
-                    ...and more to explore at the cafe!
-                  </p>
-                </motion.div>
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* Column 2: Food */}
-          <div className="space-y-16">
-            {menuData.filter(cat => cat.column === 2).map((category) => (
-              // Render each subcategory as its own visual block
-              <React.Fragment key={`${category.categoryName}-food-cat`}>
-                {category.subCategories && category.subCategories.filter(subCat => subCat.column !== 1).map((subCategory, subIndex, subArr) => {
-                  // Determine image aspect ratio class based on subcategory
-                  const imageAspectClass = subCategory.subCategoryName === "Appetizer" ? 'aspect-[4/3]' :
-                    subCategory.subCategoryName === "Roastery Club Breakfast" ? 'aspect-[16/9]' :
-                      'aspect-[16/9]'; // Default for others
-
-                  return (
-                    // Use the structure from Column 1 for each subcategory
+          {/* Conditional Rendering for Columns */}
+          {activeFilter === 'All' ? (
+            <>
+              {/* Column 1: Drinks & Bakery (Only for 'All' filter) */}
+              <div className="space-y-16">
+                {menuData
+                  .filter(cat => cat.column === 1)
+                  .map((categoryBlock) => (
                     <motion.div
-                      key={`${subCategory.subCategoryName}-${subIndex}`}
-                      className=""
+                      key={categoryBlock.id + '-col1'} // Ensure unique key if items can appear in multiple lists
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.1 }}
                     >
-                      {/* Use subcategory name as the heading */}
-                      <h2 className="text-3xl md:text-4xl font-bold font-display text-stone-900 mb-8">
-                        {subCategory.subCategoryName}
+                      <h2 className="text-3xl md:text-4xl font-bold font-display text-stone-900 mb-6">
+                        {categoryBlock.displayName}
                       </h2>
-                      {/* --- Render Text -> Image for ALL food subcategories --- */}
-                      <>
-                        {/* Highlights List (First) - Show Description */}
-                        <ul className="space-y-3 text-stone-700 mb-4">
-                          {subCategory.items
-                            .filter(item => subCategory.highlights?.includes(item.name.replace(/\s*\(Veg\/Non-Veg\)/, '')))
-                            .map((item, itemIndex) => (
-                              <li key={`${item.name}-${itemIndex}-desc`}>
-                                <p className="font-medium">{item.name}</p>
-                                {item.description && (
-                                  <p className="text-sm text-stone-600 mt-1">{item.description}</p>
-                                )}
-                              </li>
-                            ))}
-                        </ul>
-                        {/* Image Placeholder (Second) - Use calculated class */}
-                        <div className={`${imageAspectClass} bg-stone-200 mb-6 shadow-sm overflow-hidden relative`}>
-                          <p className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-sm">(Visual for {subCategory.subCategoryName})</p>
-                        </div>
-                      </>
-
-                      {/* More to Discover Teaser */}
-                      <p className="text-stone-600 italic text-sm mt-6">
-                        ...and more {subCategory.subCategoryName.toLowerCase()} options available!
-                      </p>
+                      <div className={`${categoryBlock.aspectRatio || 'aspect-[16/9]'} bg-stone-200 mb-6 shadow-sm overflow-hidden relative`}>
+                        <p className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-sm">
+                          (Visual for {categoryBlock.displayName})
+                        </p>
+                      </div>
+                      {renderContent(categoryBlock)}
                     </motion.div>
-                  );
-                })}
-              </React.Fragment>
-            ))}
-          </div>
+                  ))}
+              </div>
+
+              {/* Column 2: Food (Only for 'All' filter) */}
+              <div className="space-y-16">
+                {menuData
+                  .filter(cat => cat.column === 2)
+                  .map((categoryBlock) => (
+                    <motion.div
+                      key={categoryBlock.id + '-col2'} // Ensure unique key
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.1 }}
+                    >
+                      <h2 className="text-3xl md:text-4xl font-bold font-display text-stone-900 mb-6">
+                        {categoryBlock.displayName}
+                      </h2>
+                      <div className={`${categoryBlock.aspectRatio || 'aspect-[16/9]'} bg-stone-200 mb-6 shadow-sm overflow-hidden relative`}>
+                        <p className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-sm">
+                          (Visual for {categoryBlock.displayName})
+                        </p>
+                      </div>
+                      {renderContent(categoryBlock)}
+                    </motion.div>
+                  ))}
+              </div>
+            </>
+          ) : (
+            // Render all filtered blocks directly into the 2-column grid when a specific filter is active
+            filteredBlocks.map((categoryBlock) => (
+              <motion.div
+                key={categoryBlock.id + '-filtered'} // Ensure unique key
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+                // className="md:col-span-1" // This might be implicitly handled by the parent grid
+              >
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-stone-900 mb-6">
+                  {categoryBlock.displayName}
+                </h2>
+                <div className={`${categoryBlock.aspectRatio || 'aspect-[16/9]'} bg-stone-200 mb-6 shadow-sm overflow-hidden relative`}>
+                  <p className="absolute inset-0 flex items-center justify-center text-stone-500 italic text-sm">
+                    (Visual for {categoryBlock.displayName})
+                  </p>
+                </div>
+                {renderContent(categoryBlock)}
+              </motion.div>
+            ))
+          )}
         </div>
 
         {/* Final CTA */}

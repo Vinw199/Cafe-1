@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'; // Import useState and useEffect
 import Link from 'next/link';
+import Image from 'next/image'; // Import Next.js Image component
 import { usePathname } from 'next/navigation'; // Import usePathname
 import { motion, AnimatePresence } from 'framer-motion'; // Keep motion import and add AnimatePresence
 
@@ -70,7 +71,7 @@ const Navbar = () => {
 
   return (
     // Removed background color
-    <nav>
+    <nav className='bg-white'>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <div className="flex justify-between h-16 items-center">
           {/* Group Logo and Desktop links */}
@@ -83,8 +84,14 @@ const Navbar = () => {
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
             >
               <div className="flex-shrink-0 flex items-center">
-                <Link href="/" className="text-2xl font-bold text-stone-800 font-display">
-                   GLENROAST
+                <Link href="/" className="flex items-center"> {/* Adjusted Link for better image alignment */}
+                  <Image
+                    src="/glenroast-logo.jpeg"
+                    alt="Glenroast Cafe Logo - Home"
+                    width={55} // Adjust width as needed, e.g., 40px
+                    height={55} // Adjust height as needed, e.g., 40px
+                    className="rounded-full" // Makes the image circular
+                  />
                 </Link>
               </div>
             </motion.div>

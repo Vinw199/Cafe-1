@@ -10,68 +10,67 @@ import {
   ShieldCheckIcon,
   ArrowPathRoundedSquareIcon
 } from '@heroicons/react/24/outline'; // Import chosen icons
+import AnimatedDivider from './AnimatedDivider'; // Import the new component
 
 // Placeholder data - replace with actual data when file is read
 // Updated policies based on Dine-in policy.txt, separating sub-headings
 const policies = [
   {
     title: 'General Conduct & Atmosphere',
-    icon: UserGroupIcon, // Added icon
+    icon: UserGroupIcon,
     points: [
-      { subHeading: "Respectful Environment:", description: "Please treat our staff and fellow patrons with kindness and respect. Disruptive behavior or harassment will not be tolerated. We reserve the right to refuse service to ensure the safety and comfort of everyone." },
-      { subHeading: "Mindful Noise Levels:", description: "Help us maintain a calm and relaxing atmosphere by keeping conversations at a considerate volume." },
-      { subHeading: "Children:", description: "For safety and the comfort of all guests, children must be supervised by an adult at all times." },
-      { subHeading: "Cleanliness:", description: "Please use the designated bins for trash and help us keep our space tidy for everyone to enjoy." },
-      { subHeading: "Personal Belongings:", description: "Please keep your personal items secure and with you. We cannot be responsible for lost or stolen belongings." }
+      { subHeading: "Creating a Welcoming Space:", description: "We kindly ask that you treat our team and fellow guests with courtesy. Any disruptive actions or inappropriate behavior may result in service being declined, as we aim to provide a safe and pleasant environment for all." },
+      { subHeading: "Quiet Ambience Appreciated:", description: "To preserve a peaceful setting, we encourage keeping conversations at a moderate, respectful volume." },
+      { subHeading: "Children Are Welcome:", description: "To ensure a comfortable experience for everyone, children should remain under adult supervision at all times." },
+      { subHeading: "Help Us Stay Clean:", description: "Please dispose of any waste in the proper bins and help us maintain a clean and enjoyable space." },
+      { subHeading: "Keep Your Items Close:", description: "We recommend keeping your belongings with you at all times, as we cannot take responsibility for items that are lost or stolen." }
     ]
   },
-  {
-    title: 'Seating & Groups',
-    icon: UsersIcon, // Added icon
-    points: [
-      { subHeading: "Group Size:", description: "To ensure a comfortable experience in our space, we can accommodate dine-in groups of up to 6 people. For larger groups, please consider placing a takeaway order." },
-      { subHeading: "Busy Hours:", description: "Our cafe has limited seating. During peak times, seating may be limited, and accommodating larger groups might be challenging. We appreciate your patience and understanding. Takeaway orders are always welcome." },
-      { subHeading: "Wait Times:", description: "During busy periods, food and drink orders may take a little longer to prepare. We appreciate your patience as we craft everything with care." }
-    ]
-  },
+  // {
+  //   title: 'Seating & Groups',
+  //   icon: UsersIcon, // Added icon
+  //   points: [
+  //     { subHeading: "Group Size:", description: "To ensure a comfortable experience in our space, we can accommodate dine-in groups of up to 6 people. For larger groups, please consider placing a takeaway order." },
+  //     { subHeading: "Busy Hours:", description: "Our cafe has limited seating. During peak times, seating may be limited, and accommodating larger groups might be challenging. We appreciate your patience and understanding. Takeaway orders are always welcome." },
+  //     { subHeading: "Wait Times:", description: "During busy periods, food and drink orders may take a little longer to prepare. We appreciate your patience as we craft everything with care." }
+  //   ]
+  // },
   {
     title: 'Food, Drink & Ordering',
-    icon: ShoppingCartIcon, // Added icon
+    icon: ShoppingCartIcon,
     points: [
-      { subHeading: "Our Menu Only:", description: "We pour a lot of love into our menu! Please enjoy our food and beverages exclusively during your visit; outside food or drinks are not permitted." },
-      { subHeading: "Closing Time:", description: "Our last order is typically taken around 6:15 PM. Orders placed near closing may be served as takeaway depending on kitchen status. We close promptly at 7:00 PM." },
-      { subHeading: "Payments:", description: "We prefer cashless payments for convenience and safety." }
+      { subHeading: "Enjoy What We Offer:", description: "We take pride in our carefully crafted menu, and we kindly ask that you enjoy only the food and drinks provided by us while you're here. Outside items aren't allowed." },
+      { subHeading: "Winding Down for the Day:", description: "Our final orders are usually accepted by 9:30 PM. Depending on how the kitchen is running, late orders might be packaged to go. We close our doors right at 10:00 PM." },
+      { subHeading: "Payment Preferences:", description: "For a smoother and more secure experience, we encourage cashless transactions whenever possible." }
     ]
   },
   {
-    title: 'Our Environment & Tech Policy',
-    icon: BuildingStorefrontIcon, // Added icon
+    title: 'Environment & Tech Policy',
+    icon: BuildingStorefrontIcon,
     points: [
-      { subHeading: "Focus on Connection:", description: "We aim to be a place for relaxation, conversation, and enjoying the moment. To support this atmosphere:" },
-      { subHeading: null, description: "- We do not offer public Wi-Fi." }, // Treat list items as separate points
-      { subHeading: null, description: "- We kindly request that laptops not be used within the cafe." },
-      { subHeading: "Business Meetings:", description: "To maintain our calm environment, formal business dealings or serious meetings are not suitable for our space." },
-      { subHeading: "Smoking:", description: "Smoking (including e-cigarettes) is not permitted inside. A designated outdoor area is available; please use the ashtrays provided." },
-      { subHeading: "Pets:", description: "Well-behaved, leashed pets are welcome in our designated outdoor seating area only. Pets are not permitted inside the cafe." }
+      { subHeading: "A Space to Unwind and Connect:", description: "Our café is meant to be a comfortable spot to relax, chat, and be present—whether you're here for a quiet break or to get some work done. Free Wi-Fi is available for all guests. Laptops are welcome—just settle in and make yourself comfortable." },
+      { subHeading: "Smoking Policy:", description: "Smoking and vaping aren't allowed indoors. However, you're welcome to use our terrace, where ashtrays are provided for your convenience." },
+      { subHeading: "Pet Policy:", description: "While we love animals, pets are not allowed inside the café. Thanks for understanding." },
+      { subHeading: "Reusable Cups:", description: "Join us in supporting a greener future—bring your reusable cup and receive a small discount as a thank-you for helping cut down on single-use waste." }
     ]
   },
   {
     title: 'Safety & Legal',
-    icon: ShieldCheckIcon, // Added icon
+    icon: ShieldCheckIcon,
     points: [
-      { subHeading: "Parking:", description: "Please be mindful of our neighbours and do not block any gates when parking. Roadside parking is at your own risk." },
-      { subHeading: "Restrooms:", description: "Restrooms are available for paying customers only. Please help keep them clean." },
-      { subHeading: "Prohibited Substances:", description: "The use or possession of illegal substances is strictly prohibited on our premises." },
-      { subHeading: "Photography:", description: "We sometimes take photos or videos in the cafe for promotional purposes (like social media or our website) that capture the cafe's ambiance. If you prefer not to be prominently featured, please let a team member know." }
+      { subHeading: "Parking Considerately:", description: "Please avoid blocking any gates or driveways when parking near the café, out of respect for our neighbors. Street parking is available, but at your own discretion and risk." },
+      { subHeading: "Restroom Use:", description: "Our restrooms are for the convenience of our guests who've made a purchase. We appreciate your help in keeping them clean and tidy for the next person." },
+      { subHeading: "Substance Policy:", description: "Illegal substances are not allowed anywhere on our premises. We maintain a safe and respectful environment for all." },
+      { subHeading: "Photography Notice:", description: "We occasionally take photos or videos in the café to showcase our space online. If you'd prefer not to be included in any images, just let one of our team members know—we're happy to respect your privacy." }
     ]
   },
-  {
-    title: 'Sustainability',
-    icon: ArrowPathRoundedSquareIcon, // Added icon
-    points: [
-      { subHeading: "Reusable Cups:", description: "We encourage sustainability! Bring your own reusable cup for a small discount on your drink." }
-    ]
-  }
+  // {
+  //   title: 'Sustainability',
+  //   icon: ArrowPathRoundedSquareIcon, // Added icon
+  //   points: [
+  //     { subHeading: "Reusable Cups:", description: "We encourage sustainability! Bring your own reusable cup for a small discount on your drink." }
+  //   ]
+  // }
 ];
 
 // Updated animation variants for staggering
@@ -107,7 +106,7 @@ export default function DineInPolicyPageClient() { // Renamed the component
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-             A quick guide to ensure a comfortable experience for everyone.
+            A quick guide to ensure a comfortable experience for everyone.
           </motion.p>
         </div>
 
@@ -119,32 +118,35 @@ export default function DineInPolicyPageClient() { // Renamed the component
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Welcome to GLENROAST! To help ensure a comfortable and enjoyable experience for all our guests and staff, we kindly ask you to observe the following guidelines during your visit.
+            Welcome to GLENROAST! To help create a pleasant and respectful environment for everyone, we kindly invite you to
+            keep the following guidelines in mind during your time with us.
           </motion.p>
 
           {policies.map((policy, index) => (
-            <motion.section
-              key={index}
-              className={`px-6 ${index < policies.length - 1 ? 'py-6 pb-8 border-b border-stone-200' : 'py-6'}`}
-              variants={sectionVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                {policy.icon && <policy.icon className="h-6 w-6 text-stone-900 flex-shrink-0" aria-hidden="true" />}
-                <h2 className="text-2xl font-semibold text-stone-900 font-display">{policy.title}</h2>
-              </div>
-              <div className="space-y-2 text-gray-700 leading-relaxed mt-2 pl-[calc(1.5rem+0.75rem)]">
-                 {policy.points.map((point, pIndex) => (
-                   <p key={pIndex}>
-                     {point.subHeading && <strong className="font-semibold text-stone-900">{point.subHeading}</strong>}
-                     {point.subHeading ? ' ' : ''}
-                     {point.description}
-                   </p>
-                 ))}
-              </div>
-            </motion.section>
+            <React.Fragment key={index}> {/* Use React.Fragment to group section and divider */}
+              <motion.section
+                className={`px-6 py-6`} /* Removed border and adjusted padding */
+                variants={sectionVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  {policy.icon && <policy.icon className="h-6 w-6 text-stone-900 flex-shrink-0" aria-hidden="true" />}
+                  <h2 className="text-2xl font-semibold text-stone-900 font-display">{policy.title}</h2>
+                </div>
+                <div className="space-y-2 text-gray-700 leading-relaxed mt-2 pl-[calc(1.5rem+0.75rem)]">
+                  {policy.points.map((point, pIndex) => (
+                    <p key={pIndex}>
+                      {point.subHeading && <strong className="font-semibold text-stone-900">{point.subHeading}</strong>}
+                      {point.subHeading ? ' ' : ''}
+                      {point.description}
+                    </p>
+                  ))}
+                </div>
+              </motion.section>
+              {index < policies.length - 1 && <AnimatedDivider />} {/* Add divider if not the last item */}
+            </React.Fragment>
           ))}
         </div>
       </div>

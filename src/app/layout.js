@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
           showSpinner={false}
         />
         <Navbar />
-        <main className="relative z-20 flex-grow">
+        <main className="relative z-20 flex-grow bg-white">
           {children}
         </main>
         <Footer />

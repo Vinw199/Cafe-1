@@ -45,7 +45,7 @@ const ContactPageClient = () => { // Renamed component
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
       {/* Use lg:grid-cols-12 and assign specific spans */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-x-16 xl:gap-x-20"> {/* Adjusted gap */}
-        
+
         {/* Column 1: Split into Location, Hours, Contact */}
         <motion.div
           className="lg:col-span-3 space-y-10" // Added space-y-10 for spacing between new sections
@@ -54,14 +54,14 @@ const ContactPageClient = () => { // Renamed component
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
-          {/* Removed H2 */} 
+          {/* Removed H2 */}
 
           {/* Location Section */}
           <div className="space-y-3">
             <h3 className="text-xl font-semibold text-stone-800 font-display">Location</h3>
             <div className="flex items-start gap-3 text-stone-700">
               <MapPinIcon className="h-6 w-6 text-amber-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
-              <span>Club Road, Jorhat : 785001</span>
+              <span>Club Road, Near Hotel Clubway Grand <br />Jorhat: 785001</span>
             </div>
           </div>
 
@@ -71,8 +71,7 @@ const ContactPageClient = () => { // Renamed component
             <div className="flex items-start gap-3 text-stone-700">
               <ClockIcon className="h-6 w-6 text-amber-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
               <span>
-                All days: 10am - 10pm<br />
-                Sundays: closed
+                All days: 9am - 10pm
               </span>
             </div>
           </div>
@@ -84,7 +83,7 @@ const ContactPageClient = () => { // Renamed component
             <div className="flex items-start gap-3">
               <PhoneIcon className="h-6 w-6 text-amber-700 flex-shrink-0 mt-0.5" aria-hidden="true" />
               <a href="tel:+919834803384" className="text-amber-800 hover:text-amber-600 transition-colors duration-200 ease-in-out font-medium">
-                +91 98348 03384
+                +91 97070 82587
               </a>
             </div>
             {/* Email */}
